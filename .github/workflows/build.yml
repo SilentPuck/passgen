@@ -15,5 +15,5 @@ jobs:
 
     - name: Run tests on binary
       run: |
-        ./bin/passgen_v.1.1 --length 12
-        ./bin/passgen_v.1.1 --length 4 || echo "[OK] Detected invalid input"
+        ./bin/passgen_v.1.1 -n 12 -l -d -s
+        ./bin/passgen_v.1.1 -n 4 || echo "[OK] Detected invalid input"

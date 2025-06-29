@@ -67,7 +67,7 @@ To run locally:
 
 ```bash
 make           # build
-valgrind ./bin/passgen --length 12
+valgrind ./bin/passgen -n 12
 gcc -o test/test test/test_passgen.c && ./test/test
 
 ---

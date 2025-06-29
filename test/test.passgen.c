@@ -3,13 +3,13 @@
 
 int main() {
     printf("[TEST] Normal case:\n");
-    system("./bin/passgen --length 12");
+    system("./bin/passgen -n 12");
 
     printf("[TEST] Short password (error expected):\n");
-    system("./bin/passgen --length 4");
+    system("./bin/passgen -n 4");
 
     printf("[TEST] Multiple passwords:\n");
-    system("./bin/passgen --length 12 --count 3");
+    system("./bin/passgen -n 12 -c 3");
 
     return 0;
 }
