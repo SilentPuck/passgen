@@ -1,0 +1,33 @@
+name: Build & Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: sudo apt update && sudo apt install -y valgrind
+
+    - name: Build project
+      run: |
+        cd src
+        make
+
+    - name: Run with sanitizers
+      run: |
+        cd src
+        gcc -fsanitize=address -fsanitize=undefined -g -o ../bin/passgen_safe main.c passgen.c
+        ../bin/passgen_safe --length 12
+
+    - name: Valgrind check
+      run: valgrind --leak-check=full ./bin/passgen --length 12
+
+    - name: Run test
+      run: |
+        gcc -o test/test test/test_passgen.c
+        ./test/test
