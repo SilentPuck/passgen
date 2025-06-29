@@ -48,8 +48,30 @@ chmod +x passgen
   --version        Show version info
   --help           Show this help message
 ```
+## 🔒 Security
+
+- Written in C
+- Compiled with full memory safety: ASan, UBSan, Valgrind
+- Hardened with strict compiler flags
+
+## 🧪 Testing
+
+CI runs every commit via GitHub Actions:
+
+- Builds from `src/` via `Makefile`
+- Runs sanitizers (`-fsanitize`)
+- Runs `valgrind`
+- Executes `test/test_passgen.c`
+
+To run locally:
+
+```bash
+make           # build
+valgrind ./bin/passgen --length 12
+gcc -o test/test test/test_passgen.c && ./test/test
 
 ---
+
 
 ## 💸 Donate
 
