@@ -2,8 +2,8 @@ src/
 
 # Собранные бинарники
 bin/*
-!bin/passgen_v1.1
-!bin/passgen_v1.1.zip
+!bin/passgen_v.1.1
+!bin/passgen_v.1.1.zip
 
 # Файлы сборки
 *.o
